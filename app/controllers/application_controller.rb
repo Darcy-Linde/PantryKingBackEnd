@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
    
     def encode_token(payload)
       # should store secret in env variable
-      JWT.encode(payload, 'my_s3cr3t')
+      JWT.encode(payload, 'my_s3cr3t', 'HS256')
     end
    
     def auth_header
