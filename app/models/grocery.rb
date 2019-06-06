@@ -1,2 +1,0 @@
-class Grocery < ApplicationRecord
-end
