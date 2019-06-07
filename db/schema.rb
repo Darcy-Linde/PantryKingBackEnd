@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_184347) do
+ActiveRecord::Schema.define(version: 2019_06_07_155018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "groceries", force: :cascade do |t|
+  create_table "cookbooks", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "ingredient_id"
+    t.integer "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -25,6 +25,43 @@ ActiveRecord::Schema.define(version: 2019_06_03_184347) do
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
     t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pantries", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "ingredient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recipe_ingredients", force: :cascade do |t|
+    t.integer "api_id"
+    t.string "name"
+    t.string "aisle"
+    t.string "image"
+    t.integer "amount"
+    t.string "unit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.integer "api_id"
+    t.string "title"
+    t.string "image"
+    t.string "instructions"
+    t.integer "servings"
+    t.integer "preparation_minutes"
+    t.integer "cooking_minutes"
+    t.integer "ready_in_minutes"
+    t.integer "price_per_serving"
+    t.string "source_url"
+    t.boolean "vegetarian"
+    t.boolean "vegan"
+    t.boolean "gluten_free"
+    t.boolean "dairy_free"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
