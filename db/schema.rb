@@ -24,8 +24,6 @@ ActiveRecord::Schema.define(version: 2019_06_07_155018) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
-    t.integer "amount"
-    t.string "unit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,6 +31,8 @@ ActiveRecord::Schema.define(version: 2019_06_07_155018) do
   create_table "pantries", force: :cascade do |t|
     t.integer "user_id"
     t.integer "ingredient_id"
+    t.integer "amount"
+    t.string "unit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
