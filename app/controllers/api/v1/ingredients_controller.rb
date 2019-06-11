@@ -8,7 +8,7 @@ class Api::V1::IngredientsController < ApplicationController
   
     def create
       @ingredient = Ingredient.new(ingredient_params)
-      if @dog.save
+      if @ingredient.save
         render json: @ingredient, status: :created
       else
         render json: { errors: @ingredient.errors.full_messages }, status: :unprocessable_entity
