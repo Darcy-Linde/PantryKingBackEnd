@@ -1,5 +1,5 @@
 class Api::V1::IngredientsController < ApplicationController
-    before_action :authorize!, only: [:create]
+    #before_action :authorize!, only: [:create]
     
     def index
       @ingredients = Ingredient.all
