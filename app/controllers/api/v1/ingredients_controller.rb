@@ -5,13 +5,23 @@ class Api::V1::IngredientsController < ApplicationController
       @ingredients = Ingredient.all
       render json: @ingredients, status: :ok
     end
+
+    def show
+      @ingredient = Ingredient.find(params[:id])
+      render json: @ingredient, status: :ok
+    end
   
     def create
-      @ingredient = Ingredient.new(ingredient_params)
-      if @ingredient.save
+      @ingredient = Ingredient.find_by(ingredient_params)
+      if @ingredient
         render json: @ingredient, status: :created
       else
-        render json: { errors: @ingredient.errors.full_messages }, status: :unprocessable_entity
+        @new_ingredient = Ingredient.new(ingredient_params)
+        if @new_ingredient.save
+          render json: @new_ingredient, status: :created
+        else
+          render json: { errors: @new_ingredient.errors.full_messages }, status: :unprocessable_entity
+        end
       end
     end
   
