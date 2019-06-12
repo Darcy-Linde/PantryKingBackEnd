@@ -1,5 +1,5 @@
 class Api::V1::PantriesController < ApplicationController
-    before_action :authorize!, only: [:create]
+    #before_action :authorize!, only: [:create]
     
     def index
       @pantries = Pantry.all
