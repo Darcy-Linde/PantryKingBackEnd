@@ -20,6 +20,14 @@ class Api::V1::PantriesController < ApplicationController
         end
       end
     end
+
+    def update
+      Pantry.update(params[:id], pantry_params)
+    end
+
+    def destroy
+      Pantry.find(params[:id]).destroy
+    end
   
     private
     def pantry_params
