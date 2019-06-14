@@ -5,11 +5,6 @@ class Api::V1::RecipesController < ApplicationController
       @recipes = Recipe.all
       render json: @recipes, status: :ok
     end
-
-    def show
-      @recipe = Recipe.find(params[:id])
-      render json: @recipe, status: :ok
-    end
   
     def create
       @recipe = Recipe.find_by(recipe_params)
