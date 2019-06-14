@@ -8,7 +8,7 @@ class Api::V1::CookbooksController < ApplicationController
     end
   
     def create
-      @existingCookbook = Cookbook.find_by(user_id: params[:user_id], recipe_id: params[:recipe_id])
+      @existingCookbook = Cookbook.find_by(cookbook_params)
       if @existingCookbook
         render json: @existingCookbook, status: :created
       else
@@ -19,10 +19,6 @@ class Api::V1::CookbooksController < ApplicationController
           render json: { errors: @cookbook.errors.full_messages }, status: :unprocessable_entity
         end
       end
-    end
-
-    def update
-      Cookbook.update(params[:id], cookbook_params)
     end
 
     def destroy

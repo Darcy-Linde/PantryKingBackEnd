@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :ingredients, only: [:index, :create, :show]
       resources :pantries, only: [:index, :create, :show, :update, :destroy]
       resources :recipes, only: [:index, :create, :show]
-      resources :cookbooks, only: [:index, :create, :show, :update, :destroy]
+      resources :cookbooks, only: [:index, :create, :show, :destroy]
       post '/login', to: 'auth#create', as: 'login'
     end
   end
