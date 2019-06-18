@@ -6,4 +6,5 @@ class User < ApplicationRecord
     has_many :recipes, through: :cookbooks
     has_many :pantries
     has_many :ingredients, through: :pantries
+    has_many :meals
 end
