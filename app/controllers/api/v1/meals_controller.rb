@@ -7,12 +7,11 @@ class Api::V1::MealsController < ApplicationController
     end
   
     def create
-        @meal = Meal.new(meal_params)
-        if @meal.save
-          render json: @meal, status: :created
-        else
-          render json: { errors: @meal.errors.full_messages }, status: :unprocessable_entity
-        end
+      @meal = Meal.new(meal_params)
+      if @meal.save
+        render json: @meal, status: :created
+      else
+        render json: { errors: @meal.errors.full_messages }, status: :unprocessable_entity
       end
     end
 
